@@ -10,7 +10,8 @@ import android.support.v7.app.ActionBarActivity;
         import android.support.v4.view.ViewPager;
         import android.support.v7.app.ActionBar;
         import android.support.v7.app.ActionBarActivity;
-        import android.view.Menu;
+import android.util.Log;
+import android.view.Menu;
         import android.view.MenuItem;
 
         import java.util.ArrayList;
@@ -121,13 +122,15 @@ public class ScreenSlideActivity extends ActionBarActivity {
     //Method to open new compose activity
     //Only called by menu item option selected
     public void openLoginPage(){
+        Log.v("open login", " page");
         startActivity(new Intent(getApplicationContext(), Login.class));
     }
 
     //Method to open new my profile activity
     //Only called by menu item option selected
     public void openPostPage(){
-        startActivity(new Intent(getApplicationContext(), ScreenSlideActivity.class)); // NEED POST PAGE
+        Log.v("open post", " page");
+        startActivity(new Intent(getApplicationContext(), MainActivity.class)); // NEED POST PAGE
     }
 
 

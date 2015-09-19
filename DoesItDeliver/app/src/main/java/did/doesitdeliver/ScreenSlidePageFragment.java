@@ -34,11 +34,11 @@ public class ScreenSlidePageFragment extends Fragment {
 
     final ArrayList<ParseObject> objectsAvailableTasks = new ArrayList<>();
     final ArrayList<ParseObject> objectsMyTasks = new ArrayList<>();
-    //Uses NewDiscoverAdapter to display world wide Lalas
-    NewDiscoverAdapter adapterWorldWide;
+    //Uses availableTasksAdapter to display world wide Lalas
+    availableTasksAdapter adapterWorldWide;
     //FeedAdapter is an identical class to NewDiscoverAdapter but prevents
     //confusion from the recycled components
-    FeedAdapter adapterFollowing;
+    myTasksAdapter adapterFollowing;
     View rootViewFollowing;
     View rootViewWorldWide;
     RecyclerView recyclerListFollowing;
@@ -82,7 +82,7 @@ public class ScreenSlidePageFragment extends Fragment {
 
             //Changed to allow two separate but identical XML layouts
             //Not sure this is necessary now that it uses separate adapters
-            rootViewWorldWide = inflater.inflate(R.layout.activity_new_discover, container, false);
+            rootViewWorldWide = inflater.inflate(R.layout.recycler_view_available_tasks, container, false);
 
             //Query for all Lalas
             //Ordered by createdAt date
@@ -95,13 +95,13 @@ public class ScreenSlidePageFragment extends Fragment {
                         try {
                             //Add WorldWide ParseObjects to the global arrayList
                             for (int i = 0; i < objects.size(); i++) {
-                                objectsWorldWide.add(objects.get(i));
+                                objectsMyTasks.add(objects.get(i));
                             }
 
                             //Instantiates NewDiscoverAdapter to manage WorldWide Objects
-                            adapterWorldWide = new NewDiscoverAdapter(getActivity().getBaseContext(), getActivity(), objectsWorldWide, 1);
+                            adapterWorldWide = new availableTasksAdapter(getActivity().getBaseContext(), getActivity(), objectsMyTasks, 1);
                             //Inflates a RecyclerView from within activity_new_discover layout
-                            recyclerListWorldWide = (RecyclerView) rootViewWorldWide.findViewById(R.id.recyclerViewNewDiscover);
+                            recyclerListWorldWide = (RecyclerView) rootViewWorldWide.findViewById(R.id.recyclerViewAvailableTasks);
                             recyclerListWorldWide.setHasFixedSize(true);
                             //Choose staggered grid layout manager
                             StaggeredGridLayoutManager glmWW = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
@@ -123,7 +123,7 @@ public class ScreenSlidePageFragment extends Fragment {
 
             //Changed to allow two separate but identical XML layouts
             //Not sure this is necessary now that it uses separate adapters
-            rootViewFollowing = inflater.inflate(R.layout.activity_new_discover2, container, false);
+            rootViewFollowing = inflater.inflate(R.layout.recycler_view_my_tasks, container, false);
 
             //Must create actual variable to hold this
             ParseUser thisUser = ParseUser.getCurrentUser();
@@ -161,17 +161,17 @@ public class ScreenSlidePageFragment extends Fragment {
                                 if (e == null) {
                                     try {
                                         //Clear anything currently stored in ArrayList to avoid duplicates
-                                        objectsFollowing.clear();
+                                        objectsAvailableTasks.clear();
 
                                         //Add all returned ParseObjects into global ArrayList
                                         for (int i = 0; i < objects.size(); i++) {
-                                            objectsFollowing.add(objects.get(i));
+                                            objectsAvailableTasks.add(objects.get(i));
                                         }
 
                                         //Create FeedAdapter (identical to NewDiscoverAdapter)
                                         //Must use to avoid recycler cache confusion
-                                        adapterFollowing = new FeedAdapter(getActivity().getBaseContext(), getActivity(), objectsFollowing, 2);
-                                        recyclerListFollowing = (RecyclerView) rootViewFollowing.findViewById(R.id.recyclerViewNewDiscover2);
+                                        adapterFollowing = new myTasksAdapter(getActivity().getBaseContext(), getActivity(), objectsAvailableTasks, 2);
+                                        recyclerListFollowing = (RecyclerView) rootViewFollowing.findViewById(R.id.recyclerViewMyTasks);
                                         recyclerListFollowing.setHasFixedSize(true);
                                         StaggeredGridLayoutManager glmF = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
                                         glmF.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);

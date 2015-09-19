@@ -19,21 +19,24 @@
         <activity
             android:name=".ScreenSlideActivity"
             android:label="DoesItDeliver" >
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Login"
             android:label="@string/activity_login_label" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+
         <activity
             android:name="com.parse.ui.ParseLoginActivity"
             android:label="@string/activity_login_label"
             android:launchMode="singleTop">
+
+            <meta-data
+                android:name="com.parse.ui.ParseLoginActivity.APP_LOGO"
+                android:resource="@drawable/companylogo"/>
 
             <meta-data
                 android:name="com.parse.ui.ParseLoginActivity.PARSE_LOGIN_ENABLED"

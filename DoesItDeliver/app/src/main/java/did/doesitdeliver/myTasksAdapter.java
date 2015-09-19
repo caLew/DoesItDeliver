@@ -22,14 +22,14 @@ package did.doesitdeliver;
 /**
  * Created by saldinger on 9/19/2015.
  */
-public class availableTasksAdapter extends RecyclerView.Adapter<availableTasksAdapter.CoverPhotoViewHolder> {
+public class myTasksAdapter extends RecyclerView.Adapter<myTasksAdapter.CoverPhotoViewHolder> {
 
     static ArrayList<ParseObject> lalaObjects = null;
     ParseFile imageFile;
     private Context newDiscoverContext;
 
 
-    public availableTasksAdapter(Context context, Activity activity, ArrayList<ParseObject> objects, int viewT) {
+    public myTasksAdapter(Context context, Activity activity, ArrayList<ParseObject> objects, int viewT) {
         lalaObjects = objects;
         newDiscoverContext = context;
     }
