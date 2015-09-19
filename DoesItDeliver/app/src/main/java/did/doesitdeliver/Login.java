@@ -31,7 +31,7 @@ public class Login extends Activity {
             startActivityForResult(builder.build(), 0);
         }
         else
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, ScreenSlideActivity.class));
 
     }
 }

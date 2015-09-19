@@ -17,13 +17,18 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".Login"
-            android:label="@string/activity_login_label" >
+            android:name=".ScreenSlideActivity"
+            android:label="DoesItDeliver" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".Login"
+            android:label="@string/activity_login_label" >
         </activity>
         <activity
             android:name="com.parse.ui.ParseLoginActivity"

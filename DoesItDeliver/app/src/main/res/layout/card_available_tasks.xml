@@ -1,0 +1,75 @@
+<android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_available_tasks"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    card_view:cardCornerRadius="4dip"
+    card_view:cardElevation="30dip"
+    android:background="#80FFFFFF"
+    android:layout_margin="5dip">
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="2dip"
+            android:layout_height="fill_parent"
+            android:paddingLeft="1px"
+            android:paddingRight="1px"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true">
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#000000"/>
+        </LinearLayout>
+
+        <com.parse.ParseImageView
+            android:id="@+id/coverPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="center"
+            android:layout_alignParentTop="true"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Author"
+            android:id="@+id/authorUserName"
+            android:layout_below="@+id/coverPhoto"
+            android:layout_alignLeft="@+id/coverPhoto"
+            android:layout_marginTop="2dip" />
+
+        <View android:layout_width="120dip"
+            android:layout_below="@+id/authorUserName"
+            android:layout_height="1dip"
+            android:background="#0000ff" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Title"
+            android:id="@+id/lalaTitle"
+            android:layout_below="@+id/authorUserName"
+            android:layout_alignLeft="@+id/authorUserName"
+            android:layout_alignStart="@+id/authorUserName" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="pointer"
+            android:id="@+id/lalaPointer"
+            android:layout_alignBottom="@+id/coverPhoto"
+            android:layout_alignLeft="@+id/coverPhoto"
+            android:layout_alignStart="@+id/coverPhoto"
+            android:layout_marginBottom="1dp" />
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
